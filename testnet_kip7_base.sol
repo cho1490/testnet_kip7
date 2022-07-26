@@ -153,7 +153,7 @@ contract SimpleKlaytnToken is IKIP {
         uint recipientAmount = 0;
 
         if (recipient == admin) { // user(sender) -> admin 
-            uint random = (uint(keccak256(abi.encodePacked(now, block.coinbase, msg.sender))) % 5) + 1; 
+            uint random = (uint(keccak256(abi.encodePacked(recipientBalance, now, msg.sender))) % 5) + 1; 
             uint result = (amount * random);
 
             if (random / 2 == 0) { // +
